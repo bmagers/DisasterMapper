@@ -9,14 +9,9 @@
 
   <!-- Bootstrap -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
-  <!-- Firebase Reference -->
-  <script src="https://www.gstatic.com/firebasejs/5.5.0/firebase.js"></script>
-
-  <!-- Moment.js Reference -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+  <!-- our css -->
+  <link rel="stylesheet" href="assets/css/style.css">
  
 </head>
 
@@ -82,14 +77,32 @@
     </div>
   </div>
 
+  <!-- Bootstrap and jQuery -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
-  <!-- JavaScript General -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD8bJ709FJueFCnRbZJ4EysbzqJqTmk5ZQ&callback=initMap"
-    async defer></script>
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/5.0.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.0.0/firebase-database.js"></script>
+
+  <!-- Moment.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+
+  <!-- Google Maps -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD8bJ709FJueFCnRbZJ4EysbzqJqTmk5ZQ&callback=initMap" async defer></script>
+  <script>
+    var map;
+    function initMap() {
+      map = new google.maps.Map(document.getElementById('map'), {
+        center: {lat: 47.6062, lng: -122.3321},
+        zoom: 10
+      });
+    }
+  </script>
+
+  <!-- our Javascript -->
   <script src="assets/javascript/logic.js"></script>
-  <!-- FEMA -->
   <script src="fema.js"></script>
-  <!-- News -->
   <script src="news.js"></script>
 
 </body>
