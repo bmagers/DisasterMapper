@@ -5,7 +5,7 @@
 <head>
 
   <meta charset="UTF-8">
-  <title>Employee Tracker</title>
+  <title>DisasterMapper</title>
 
   <!-- Bootstrap -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
@@ -76,9 +76,7 @@
       </div>
 
       <div class="col-md-8">
-        <div id="map">
-          <img src="assets/images/map-placeholder.png" alt="map-placeholder" width="100%" height="auto">
-        </div>
+        <div id="map"></div>
       </div>
 
     </div>
@@ -86,6 +84,8 @@
 
 
   <!-- JavaScript General -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD8bJ709FJueFCnRbZJ4EysbzqJqTmk5ZQ&callback=initMap"
+    async defer></script>
   <script src="assets/javascript/logic.js"></script>
   <!-- FEMA -->
   <script src="fema.js"></script>
