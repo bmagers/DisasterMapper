@@ -7,3 +7,7 @@
 .container {
   padding-top: 80px;
 }
+
+#counties {
+  visibility: hidden;
+}
