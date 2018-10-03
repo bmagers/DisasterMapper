@@ -13,6 +13,7 @@ $("#add-employee-btn").on("click", function(event) {
   //"state": "TX",
   let state = $("#states").find(":selected").attr("value");
   //"declaredCountyArea": "",
+  let area = $("#counties").find(":selected").attr("value");
   // let area = $("#area-input").val().trim();
   console.log(state);
     //"incidentBeginDate": "1953-06-19T00:00:00.000Z",
@@ -35,6 +36,9 @@ $("#add-employee-btn").on("click", function(event) {
   // }
   if (state.length >= 2) {
     queryFilter = addFilter(queryFilter, "substringof('" + state + "',state)");
+  }
+  if (area.length > 0) {
+    queryFilter = addFilter(queryFilter, "substringof('" + area + "',declaredCountyArea)");
   }
   if (beginDate.length > 0) {
     beginDate = new Date(beginDate).toISOString();
