@@ -77,8 +77,25 @@
         <div id="map"></div>
       </div>
     </div>
+
+    <!-- Results list -->
+    <table class="table table-striped">
+      <thead>
+        <p>FEMA Disaster Declarations</p>
+        <tr>
+          <th scope="col">Train Name</th>
+          <th scope="col">Destination</th>
+          <th scope="col">Frequency (min)</th>
+          <th scope="col">Next Arrival</th>
+          <th scope="col">Minutes Away</th>
+        </tr>
+      </thead>
+      <tbody id="train-schedule">
+      </tbody>
+    </table>    
     
-    <!-- Relief donation and volunteer links -->
+  <!-- Relief donation and volunteer links -->
+  <div class="container">
     <div class="card" style="width: 18rem;">
       <img class="card-img-top" src="https://capitalresearch.org/app/uploads/red-cross.jpg" alt="Card image cap">
         <div class="card-body">
@@ -87,20 +104,18 @@
         </div>
         <div class="card-body">
           <li>
-            <a href="#" class="card-link">https://www.redcross.org/</a>
+            <a href="https://www.redcross.org/" class="card-link">Red Cross</a>
           </li>
           <li>
-            <a href="#" class="card-link">https://www.redcross.org/donate/donation.html/</a>
+            <a href="https://disaster.salvationarmyusa.org/give/" class="card-link">Salvation Army</a>
           </li>
           <li>
-            <a href="#" class="card-link">https://disaster.salvationarmyusa.org/give/</a>
-          </li>
-          <li>
-            <a href="#"
-            class="card-link">https://www.fema.gov/volunteer-donate-responsibly</a>
+            <a href="https://www.fema.gov/volunteer-donate-responsibly"
+            class="card-link">FEMA</a>
           </li>
         </div>
     </div>
+  </div>
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script

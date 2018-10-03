@@ -4,6 +4,10 @@
   border: 1px solid black;
 }
 
+.container {
+  padding-top: 80px;
+}
+
 #counties {
   visibility: hidden;
 }
