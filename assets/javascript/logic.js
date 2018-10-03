@@ -58,4 +58,17 @@ $(document).ready(function() {
     var option = $("<option>").text(value).attr("value", index);
     $("#states").append(option);
   });
+
+  $("#states").change(function() {
+    $("#counties").css("visibility", "visible");
+    $("#counties").find("option").remove().end().append("<option selected disabled>select a county</option>");
+    $.each(counties, function(index, value) {
+      if (value.State === $("#states").find(":selected").attr("value")) {
+          var option = $("<option>").text(value.County).attr("value", value.County);
+          $("#counties").append(option);
+          console.log(value.County);
+        }
+    });
+  })
+
 });
