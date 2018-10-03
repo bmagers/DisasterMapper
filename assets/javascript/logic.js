@@ -54,5 +54,8 @@ var states = {
 }
 
 $(document).ready(function() {
-  // stuff
+  $.each(states, function(index, value) {
+    var option = $("<option>").text(value).attr("value", index);
+    $("#states").append(option);
+  });
 });

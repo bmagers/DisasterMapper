@@ -11,10 +11,10 @@ $("#add-employee-btn").on("click", function(event) {
   let incidentType = $("#incident-type-input").val().trim().toLowerCase();
   console.log(incidentType);
   //"state": "TX",
-  // let state = $("#state-input").val().trim();
+  let state = $("#states").find(":selected").attr("value");
   //"declaredCountyArea": "",
-  let area = $("#area-input").val().trim();
-  console.log(area);
+  // let area = $("#area-input").val().trim();
+  console.log(state);
     //"incidentBeginDate": "1953-06-19T00:00:00.000Z",
   let beginDate = $("#begin-input").val().trim();
   console.log(beginDate);
@@ -30,8 +30,11 @@ $("#add-employee-btn").on("click", function(event) {
     incidentType = incidentType[0].toUpperCase() + incidentType.slice(1);
     queryFilter = addFilter(queryFilter, "substringof('" + incidentType + "',incidentType)");
   }
-  if (area.length > 0) {
-    queryFilter = addFilter(queryFilter, "(substringof('" + area.toUpperCase() + "',state) or substringof('" + area + "',declaredCountyArea))");
+  // if (area.length > 0) {
+  //   queryFilter = addFilter(queryFilter, "(substringof('" + area.toUpperCase() + "',state) or substringof('" + area + "',declaredCountyArea))");
+  // }
+  if (state.length >= 2) {
+    queryFilter = addFilter(queryFilter, "substringof('" + state + "',state)");
   }
   if (beginDate.length > 0) {
     beginDate = new Date(beginDate).toISOString();

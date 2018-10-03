@@ -47,21 +47,26 @@
               </div>
               
               <div class="form-group row">
-                <!-- declaredCountyArea or state (decide later) -->
-                <label for="area-input">Area</label>
-                <input class="form-control" id="area-input" placeholder="Lee County" type="text">
+                <!-- declaredCountyArea or state -->
+                <label for="location-input">Location</label>
+                <select id="states">
+                  <option selected disabled>select a state</option>
+                </select>
+                <select id="counties">
+                  <option selected disabled>select a county</option>
+                </select>
               </div>
 
               <div class="form-group row">
                 <!-- incidentBeginDate -->
                 <label for="begin-input">Begin Date (MM/DD/YYYY)</label>
-                <input class="form-control" id="begin-input" placeholder="01/08/1989" type="text">
+                <input class="form-control" id="begin-input" placeholder="01/01/2015" type="text">
               </div>
 
               <div class="form-group row">
                   <!-- incidentEndDate -->
-                  <label for="end-input">Begin Date (MM/DD/YYYY)</label>
-                  <input class="form-control" id="end-input" placeholder="02/08/1989" type="text">
+                  <label for="end-input">End Date (MM/DD/YYYY)</label>
+                  <input class="form-control" id="end-input" placeholder="10/02/2018" type="text">
                 </div>
 
               <button class="btn btn-primary float-right" id="add-employee-btn">Go</button>
