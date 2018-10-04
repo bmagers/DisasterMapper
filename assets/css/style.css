@@ -11,3 +11,8 @@
 #counties {
   visibility: hidden;
 }
+
+.card-deck {
+  padding-top: 350px;
+  padding-bottom: 50px;
+}
