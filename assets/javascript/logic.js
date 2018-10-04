@@ -53,7 +53,24 @@ var states = {
   "WY": "Wyoming"
 }
 
+var map;
+function initMap() {
+  map = new google.maps.Map(document.getElementById("map"), {
+    center: {lat: 47.6062, lng: -122.3321},
+    zoom: 10
+  });
+}
+
+function mapLocation(state, county) {
+  var countyObj = counties.find(obj => obj.State === state && obj.County === county);
+  var latitude = parseFloat(countyObj.Latitude);
+  var longitude = parseFloat(countyObj.Longitude);
+  var latLng = {lat: latitude, lng: longitude};
+  return latLng;
+}
+
 $(document).ready(function() {
+
   $.each(states, function(index, value) {
     var option = $("<option>").text(value).attr("value", index);
     $("#states").append(option);
@@ -72,6 +89,18 @@ $(document).ready(function() {
           $("#counties").append(option);
         }
     });
-  })
+  });
+
+  $("#counties").change(function() {
+    var state = $("#states").find(":selected").attr("value");
+    var county = $("#counties").find(":selected").attr("value");
+    var position = mapLocation(state, county);
+    var marker = new google.maps.Marker({
+      position: position,
+      map: map
+    });
+    marker.setMap(map);
+    map.setCenter(position);
+  });
 
 });
