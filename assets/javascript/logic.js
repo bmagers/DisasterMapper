@@ -61,6 +61,8 @@ function initMap() {
   });
 }
 
+var marker;
+
 function mapLocation(state, county) {
   var countyObj = counties.find(obj => obj.State === state && obj.County === county);
   var latitude = parseFloat(countyObj.Latitude);
@@ -92,10 +94,13 @@ $(document).ready(function() {
   });
 
   $("#counties").change(function() {
+    if (marker) {
+      marker.setMap(null);
+    }
     var state = $("#states").find(":selected").attr("value");
     var county = $("#counties").find(":selected").attr("value");
     var position = mapLocation(state, county);
-    var marker = new google.maps.Marker({
+    marker = new google.maps.Marker({
       position: position,
       map: map
     });
