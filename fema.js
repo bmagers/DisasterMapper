@@ -74,16 +74,31 @@ $("#add-employee-btn").on("click", function(event) {
           $("<td>").text(disasterInfo[i].incidentType),
           $("<td>").text(disasterInfo[i].state),
           $("<td>").text(disasterInfo[i].declaredCountyArea),
-          $("<td>").text(disasterInfo[i].incidentBeginDate),
-          $("<td>").text(disasterInfo[i].incidentEndDate)
+          $("<td>").text(dateFormat(disasterInfo[i].incidentBeginDate)),
+          $("<td>").text(dateFormat(disasterInfo[i].incidentEndDate))
         );
 
         // Append the new row to the table
       disasterTable.append(newRow);
-    }
+      }
     }
   });
 });
+
+function dateFormat(dateString) {
+  var date = new Date(dateString);
+  var year = date.getFullYear();
+  var month = date.getMonth() + 1;
+  var day = date.getDate();
+  if (day < 10) {
+    day = "0" + day;
+  }
+  if (month < 10) {
+    month = "0" + month;
+  }
+  dateFormatted = month + "/" + day + "/" + year;
+  return dateFormatted;
+}
 
 function addFilter(filter, newFilter) {
   if (filter.length > 0) {
