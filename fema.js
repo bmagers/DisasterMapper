@@ -24,40 +24,53 @@ $("#add-employee-btn").on("click", function(event) {
   console.log(endDate);
   
   let queryFilter = "";
-  if (title.length > 0) {
+  if (title) {
     queryFilter = addFilter(queryFilter, "substringof('" + title + "',title)");
   }
-  if (incidentType.length > 0) {
+  if (incidentType) {
     incidentType = incidentType[0].toUpperCase() + incidentType.slice(1);
-    queryFilter = addFilter(queryFilter, "substringof('" + incidentType + "',incidentType)");
+    queryFilter = addFilter(queryFilter, "substringof('" + incidentType + "',incidentType)"); //substringof in api
   }
   // if (area.length > 0) {
   //   queryFilter = addFilter(queryFilter, "(substringof('" + area.toUpperCase() + "',state) or substringof('" + area + "',declaredCountyArea))");
   // }
-  if (state.length >= 2) {
-    queryFilter = addFilter(queryFilter, "substringof('" + state + "',state)");
+  if (state) {
+    queryFilter = addFilter(queryFilter, "state eq'" + state + "'"); //state eq in API documentation
   }
-  if (area.length > 0) {
-    queryFilter = addFilter(queryFilter, "substringof('" + area + "',declaredCountyArea)");
+  if (area) {
+    queryFilter = addFilter(queryFilter, "declaredCountyArea eq '" + area + "'");
   }
-  if (beginDate.length > 0) {
-    beginDate = new Date(beginDate).toISOString();
+  if (beginDate) {
+    beginDate = new Date(beginDate).toISOString();  //api way to format date/times
     queryFilter = addFilter(queryFilter, "incidentBeginDate ge '" + beginDate + "'");
   }
-  if (endDate.length > 0) {
-    endDate = new Date(endDate).toISOString();
+  if (endDate) {
+    endDate = new Date(endDate).toISOString(); //api way to format date/times
     queryFilter = addFilter(queryFilter, "incidentEndDate le '" + endDate + "'");
   }
-  let queryURL = "https://www.fema.gov/api/open/v1/DisasterDeclarationsSummaries?$filter=" + queryFilter + "&$orderby=incidentBeginDate%20desc&$select=title,incidentType,declaredCountyArea,state,incidentBeginDate,incidentEndDate&$top=10";
+  let femaQueryURL = "https://www.fema.gov/api/open/v1/DisasterDeclarationsSummaries?$filter=" + queryFilter + "&$orderby=incidentBeginDate%20desc&$select=title,incidentType,declaredCountyArea,state,incidentBeginDate,incidentEndDate&$top=10";
 
-  console.log(queryURL);
+  console.log(femaQueryURL);
   $.ajax({
-    url: queryURL,
+    url: femaQueryURL,
     method: "GET"
   }).then(function(response){ 
     var disasterInfo = response.DisasterDeclarationsSummaries
     console.log(disasterInfo.length);
     console.log(disasterInfo);
+    for(var i = 0; i < disasterInfo.length; i++) {
+      var newRow = $("<tr>").append(
+        $("<td>").text(disasterInfo[i].title),
+        $("<td>").text(disasterInfo[i].incidentType),
+        $("<td>").text(disasterInfo[i].state),
+        $("<td>").text(disasterInfo[i].declaredCountyArea),
+        $("<td>").text(disasterInfo[i].incidentBeginDate),
+        $("<td>").text(disasterInfo[i].incidentEndDate)
+      );
+    
+      // Append the new row to the table
+      $("#fema-disasters > tbody").append(newRow);
+    }
   });
 });
 
