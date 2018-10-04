@@ -38,7 +38,7 @@ $("#add-employee-btn").on("click", function(event) {
     queryFilter = addFilter(queryFilter, "state eq'" + state + "'"); //state eq in API documentation
   }
   if (area) {
-    queryFilter = addFilter(queryFilter, "declaredCountyArea eq '" + area + "'");
+    queryFilter = addFilter(queryFilter, "substringof('" + area + "',declaredCountyArea)");
   }
   if (beginDate) {
     beginDate = new Date(beginDate).toISOString();  //api way to format date/times
@@ -58,18 +58,29 @@ $("#add-employee-btn").on("click", function(event) {
     var disasterInfo = response.DisasterDeclarationsSummaries
     console.log(disasterInfo.length);
     console.log(disasterInfo);
-    for(var i = 0; i < disasterInfo.length; i++) {
-      var newRow = $("<tr>").append(
-        $("<td>").text(disasterInfo[i].title),
-        $("<td>").text(disasterInfo[i].incidentType),
-        $("<td>").text(disasterInfo[i].state),
-        $("<td>").text(disasterInfo[i].declaredCountyArea),
-        $("<td>").text(disasterInfo[i].incidentBeginDate),
-        $("<td>").text(disasterInfo[i].incidentEndDate)
+    let disasterTable = $("#fema-disasters > tbody").empty();
+
+    if (disasterInfo.length === 0) {
+      let newRow = $("<tr>").append(
+        $("<td>").attr("colspan", 6).text("Your search did not return any results.  Try being less specific and if the event is recent do not enter a end date.")
       );
-    
-      // Append the new row to the table
-      $("#fema-disasters > tbody").append(newRow);
+      disasterTable.append(newRow);
+      
+    } else {
+      for(var i = 0; i < disasterInfo.length; i++) {
+        
+        let newRow = $("<tr>").append(
+          $("<td>").text(disasterInfo[i].title),
+          $("<td>").text(disasterInfo[i].incidentType),
+          $("<td>").text(disasterInfo[i].state),
+          $("<td>").text(disasterInfo[i].declaredCountyArea),
+          $("<td>").text(disasterInfo[i].incidentBeginDate),
+          $("<td>").text(disasterInfo[i].incidentEndDate)
+        );
+
+        // Append the new row to the table
+      disasterTable.append(newRow);
+    }
     }
   });
 });
