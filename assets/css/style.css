@@ -1,3 +1,9 @@
+#wholePage {
+  background-image: url("https://naldzgraphics.net/wp-content/uploads/2014/07/10-surface-water-textures.jpg");
+  background-size: 100%;
+  color: white;
+}
+
 #map {
   min-height: 500px;
   height: 100%;
@@ -15,4 +21,6 @@
 .card-deck {
   padding-top: 100px;
   padding-bottom: 50px;
+  color: black;
 }
+
