@@ -16,3 +16,36 @@
   padding-top: 100px;
   padding-bottom: 50px;
 }
+
+/* News Content */
+.news-div {
+	width: 80%;
+	height: auto;
+}
+
+#news-reference {
+	color: gray;
+	font-size: 12px;
+}
+
+#article-view, #news-reference, .title-view, #article-title {
+  margin: 0;
+  padding: 0;
+}
+
+.title-view a:link, a:visited { 
+    color: blue;
+    cursor: auto;
+}
+
+.title-view a:link:active, a:visited:active { 
+    color: green;
+}
+
+.rounded {
+	width: 100%;
+}
+
+.result-content {
+  margin-top: 15px;
+}
