@@ -74,15 +74,19 @@ function mapLocation(state, county) {
 function dateFormat(dateString) {
   var date = new Date(dateString);
   var year = date.getFullYear();
-  var month = date.getMonth() + 1;
-  var day = date.getDate();
-  if (day < 10) {
-    day = "0" + day;
+  if (isNaN(year)) {
+    dateFormatted = "";
+  } else {
+    var month = date.getMonth() + 1;
+    var day = date.getDate();
+    if (day < 10) {
+      day = "0" + day;
+    }
+    if (month < 10) {
+      month = "0" + month;
+    }
+    dateFormatted = month + "/" + day + "/" + year;
   }
-  if (month < 10) {
-    month = "0" + month;
-  }
-  dateFormatted = month + "/" + day + "/" + year;
   return dateFormatted;
 }
 
@@ -124,7 +128,7 @@ $(document).ready(function() {
       .find("option")
       .remove()
       .end()
-      .append("<option selected disabled>select a county</option>");
+      .append("<option selected>all counties</option>");
     $.each(counties, function(index, value) {
       if (value.State === $("#states").find(":selected").attr("value")) {
           var option = $("<option>").text(value.County).attr("value", value.County);
@@ -211,13 +215,19 @@ $(document).ready(function() {
             $("<td>").text(dateFormat(disasterInfo[i].incidentEndDate))
           );
 
-          addMarker(mapLocation(state, county));
+          if (state && county) {
+            addMarker(mapLocation(state, county));
+          }
 
           // Append the new row to the table
-        disasterTable.append(newRow);
+          disasterTable.append(newRow);
         }
       }
       map.fitBounds(bounds);
+      console.log("zoom:" + map.getZoom())
+      if (map.getZoom() > 10) {
+        map.setZoom(10);
+      }
     });
   });
 
