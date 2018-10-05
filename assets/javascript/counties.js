@@ -478,7 +478,7 @@ var counties = [
   {
     "State": "AK",
     "FIPS": 2016,
-    "County": "Aleutians West[4]",
+    "County": "Aleutians West",
     "Latitude": "+51.959447",
     "Longitude": "+178.338813"
   },
@@ -492,7 +492,7 @@ var counties = [
   {
     "State": "AK",
     "FIPS": 2050,
-    "County": "Bethel [4]",
+    "County": "Bethel",
     "Latitude": "+60.928916",
     "Longitude": "-160.153350"
   },
@@ -513,7 +513,7 @@ var counties = [
   {
     "State": "AK",
     "FIPS": 2070,
-    "County": "Dillingham [4]",
+    "County": "Dillingham",
     "Latitude": "+59.824816",
     "Longitude": "-158.602233"
   },
@@ -534,7 +534,7 @@ var counties = [
   {
     "State": "AK",
     "FIPS": 2105,
-    "County": "Hoonah-Angoon [4]",
+    "County": "Hoonah-Angoon",
     "Latitude": "+58.076434",
     "Longitude": "-135.185100"
   },
@@ -583,7 +583,7 @@ var counties = [
   {
     "State": "AK",
     "FIPS": 2180,
-    "County": "Nome [4]",
+    "County": "Nome",
     "Latitude": "+64.783686",
     "Longitude": "-164.188912"
   },
@@ -604,14 +604,14 @@ var counties = [
   {
     "State": "AK",
     "FIPS": 2195,
-    "County": "Petersburg [4]",
+    "County": "Petersburg",
     "Latitude": "+56.639612",
     "Longitude": "-133.527996"
   },
   {
     "State": "AK",
     "FIPS": 2198,
-    "County": "Prince of Wales-Hyder [4]",
+    "County": "Prince of Wales-Hyder",
     "Latitude": "+55.415683",
     "Longitude": "-132.875734"
   },
@@ -632,21 +632,21 @@ var counties = [
   {
     "State": "AK",
     "FIPS": 2240,
-    "County": "Southeast Fairbanks [4]",
+    "County": "Southeast Fairbanks",
     "Latitude": "+63.864997",
     "Longitude": "-143.218628"
   },
   {
     "State": "AK",
     "FIPS": 2261,
-    "County": "Valdez-Cordova[4]",
+    "County": "Valdez-Cordova",
     "Latitude": "+61.349840",
     "Longitude": "-145.023141"
   },
   {
     "State": "AK",
     "FIPS": 2270,
-    "County": "Wade Hampton[4]",
+    "County": "Wade Hampton",
     "Latitude": "+62.283174",
     "Longitude": "-163.190950"
   },
@@ -667,7 +667,7 @@ var counties = [
   {
     "State": "AK",
     "FIPS": 2290,
-    "County": "Yukon-Koyukuk[4]",
+    "County": "Yukon-Koyukuk",
     "Latitude": "+65.376131",
     "Longitude": "-151.576855"
   },
@@ -2158,56 +2158,56 @@ var counties = [
   {
     "State": "CT",
     "FIPS": 9001,
-    "County": "Fairfield [6]",
+    "County": "Fairfield",
     "Latitude": "+41.228103",
     "Longitude": "-73.366757"
   },
   {
     "State": "CT",
     "FIPS": 9003,
-    "County": "Hartford [6]",
+    "County": "Hartford",
     "Latitude": "+41.806053",
     "Longitude": "-72.732916"
   },
   {
     "State": "CT",
     "FIPS": 9005,
-    "County": "Litchfield [6]",
+    "County": "Litchfield",
     "Latitude": "+41.791897",
     "Longitude": "-73.235428"
   },
   {
     "State": "CT",
     "FIPS": 9007,
-    "County": "Middlesex [6]",
+    "County": "Middlesex",
     "Latitude": "+41.434525",
     "Longitude": "-72.524227"
   },
   {
     "State": "CT",
     "FIPS": 9009,
-    "County": "New Haven [6]",
+    "County": "New Haven",
     "Latitude": "+41.349717",
     "Longitude": "-72.900204"
   },
   {
     "State": "CT",
     "FIPS": 9011,
-    "County": "New London [6]",
+    "County": "New London",
     "Latitude": "+41.478630",
     "Longitude": "-72.103452"
   },
   {
     "State": "CT",
     "FIPS": 9013,
-    "County": "Tolland [6]",
+    "County": "Tolland",
     "Latitude": "+41.858076",
     "Longitude": "-72.340977"
   },
   {
     "State": "CT",
     "FIPS": 9015,
-    "County": "Windham [6]",
+    "County": "Windham",
     "Latitude": "+41.824999",
     "Longitude": "-71.990702"
   },
@@ -2235,7 +2235,7 @@ var counties = [
   {
     "State": "DC",
     "FIPS": 11001,
-    "County": "District of Columbia [7]",
+    "County": "District of Columbia",
     "Latitude": "+38.904149",
     "Longitude": "-77.017094"
   },
@@ -3838,7 +3838,7 @@ var counties = [
   {
     "State": "HI",
     "FIPS": 15005,
-    "County": "Kalawao [8]",
+    "County": "Kalawao",
     "Latitude": "+21.218764",
     "Longitude": "-156.974010"
   },
@@ -8514,7 +8514,7 @@ var counties = [
   {
     "State": "MD",
     "FIPS": 24510,
-    "County": "Baltimore [9]",
+    "County": "Baltimore",
     "Latitude": "+39.300214",
     "Longitude": "-76.610516"
   },
@@ -11181,7 +11181,7 @@ var counties = [
   {
     "State": "MO",
     "FIPS": 29510,
-    "County": "St. Louis [9]",
+    "County": "St. Louis",
     "Latitude": "+38.635699",
     "Longitude": "-90.244582"
   },
@@ -12343,7 +12343,7 @@ var counties = [
   {
     "State": "NV",
     "FIPS": 32510,
-    "County": "Carson City [9]",
+    "County": "Carson City",
     "Latitude": "+39.153447",
     "Longitude": "-119.743442"
   },
@@ -12812,7 +12812,7 @@ var counties = [
   {
     "State": "NY",
     "FIPS": 36005,
-    "County": "Bronx [10]",
+    "County": "Bronx",
     "Latitude": "+40.848711",
     "Longitude": "-73.852939"
   },
@@ -12959,7 +12959,7 @@ var counties = [
   {
     "State": "NY",
     "FIPS": 36047,
-    "County": "Kings [10]",
+    "County": "Kings",
     "Latitude": "+40.635133",
     "Longitude": "-73.950777"
   },
@@ -13008,7 +13008,7 @@ var counties = [
   {
     "State": "NY",
     "FIPS": 36061,
-    "County": "New York [10]",
+    "County": "New York",
     "Latitude": "+40.776557",
     "Longitude": "-73.970174"
   },
@@ -13078,7 +13078,7 @@ var counties = [
   {
     "State": "NY",
     "FIPS": 36081,
-    "County": "Queens [10]",
+    "County": "Queens",
     "Latitude": "+40.658557",
     "Longitude": "-73.837929"
   },
@@ -13092,7 +13092,7 @@ var counties = [
   {
     "State": "NY",
     "FIPS": 36085,
-    "County": "Richmond [10]",
+    "County": "Richmond",
     "Latitude": "+40.563855",
     "Longitude": "-74.137063"
   },
@@ -16179,35 +16179,35 @@ var counties = [
   {
     "State": "RI",
     "FIPS": 44001,
-    "County": "Bristol [6]",
+    "County": "Bristol",
     "Latitude": "+41.705271",
     "Longitude": "-71.285053"
   },
   {
     "State": "RI",
     "FIPS": 44003,
-    "County": "Kent [6]",
+    "County": "Kent",
     "Latitude": "+41.677750",
     "Longitude": "-71.576314"
   },
   {
     "State": "RI",
     "FIPS": 44005,
-    "County": "Newport [6]",
+    "County": "Newport",
     "Latitude": "+41.502732",
     "Longitude": "-71.284063"
   },
   {
     "State": "RI",
     "FIPS": 44007,
-    "County": "Providence [6]",
+    "County": "Providence",
     "Latitude": "+41.870488",
     "Longitude": "-71.578242"
   },
   {
     "State": "RI",
     "FIPS": 44009,
-    "County": "Washington [6]",
+    "County": "Washington",
     "Latitude": "+41.401162",
     "Longitude": "-71.617612"
   },
@@ -16921,7 +16921,7 @@ var counties = [
   {
     "State": "SD",
     "FIPS": 46102,
-    "County": "Oglala Lakota[11]",
+    "County": "Oglala Lakota",
     "Latitude": "+43.341937",
     "Longitude": "-102.559480"
   },
@@ -16949,7 +16949,7 @@ var counties = [
   {
     "State": "SD",
     "FIPS": 46121,
-    "County": "Todd [12]",
+    "County": "Todd",
     "Latitude": "+43.208172",
     "Longitude": "-100.717204"
   },
@@ -20407,273 +20407,273 @@ var counties = [
   {
     "State": "VA",
     "FIPS": 51510,
-    "County": "Alexandria [9]",
+    "County": "Alexandria",
     "Latitude": "+38.818343",
     "Longitude": "-77.082026"
   },
   {
     "State": "VA",
     "FIPS": 51515,
-    "County": "Bedford [9]",
+    "County": "Bedford",
     "Latitude": "+37.338156",
     "Longitude": "-79.520705"
   },
   {
     "State": "VA",
     "FIPS": 51520,
-    "County": "Bristol [9]",
+    "County": "Bristol",
     "Latitude": "+36.616954",
     "Longitude": "-82.157564"
   },
   {
     "State": "VA",
     "FIPS": 51530,
-    "County": "Buena Vista [9]",
+    "County": "Buena Vista",
     "Latitude": "+37.731663",
     "Longitude": "-79.356375"
   },
   {
     "State": "VA",
     "FIPS": 51540,
-    "County": "Charlottesville[9]",
+    "County": "Charlottesville",
     "Latitude": "+38.037658",
     "Longitude": "-78.485381"
   },
   {
     "State": "VA",
     "FIPS": 51550,
-    "County": "Chesapeake [9]",
+    "County": "Chesapeake",
     "Latitude": "+36.679376",
     "Longitude": "-76.301788"
   },
   {
     "State": "VA",
     "FIPS": 51570,
-    "County": "Colonial Heights [9]",
+    "County": "Colonial Heights",
     "Latitude": "+37.261685",
     "Longitude": "-77.396804"
   },
   {
     "State": "VA",
     "FIPS": 51580,
-    "County": "Covington [9]",
+    "County": "Covington",
     "Latitude": "+37.778143",
     "Longitude": "-79.986039"
   },
   {
     "State": "VA",
     "FIPS": 51590,
-    "County": "Danville [9]",
+    "County": "Danville",
     "Latitude": "+36.583334",
     "Longitude": "-79.408071"
   },
   {
     "State": "VA",
     "FIPS": 51595,
-    "County": "Emporia [9]",
+    "County": "Emporia",
     "Latitude": "+36.696182",
     "Longitude": "-77.535975"
   },
   {
     "State": "VA",
     "FIPS": 51600,
-    "County": "Fairfax [9]",
+    "County": "Fairfax",
     "Latitude": "+38.853183",
     "Longitude": "-77.299025"
   },
   {
     "State": "VA",
     "FIPS": 51610,
-    "County": "Falls Church [9]",
+    "County": "Falls Church",
     "Latitude": "+38.883787",
     "Longitude": "-77.174639"
   },
   {
     "State": "VA",
     "FIPS": 51620,
-    "County": "Franklin [9]",
+    "County": "Franklin",
     "Latitude": "+36.684014",
     "Longitude": "-76.941396"
   },
   {
     "State": "VA",
     "FIPS": 51630,
-    "County": "Fredericksburg[9]",
+    "County": "Fredericksburg",
     "Latitude": "+38.299272",
     "Longitude": "-77.486658"
   },
   {
     "State": "VA",
     "FIPS": 51640,
-    "County": "Galax [9]",
+    "County": "Galax",
     "Latitude": "+36.665640",
     "Longitude": "-80.914308"
   },
   {
     "State": "VA",
     "FIPS": 51650,
-    "County": "Hampton [9]",
+    "County": "Hampton",
     "Latitude": "+37.048030",
     "Longitude": "-76.297149"
   },
   {
     "State": "VA",
     "FIPS": 51660,
-    "County": "Harrisonburg [9]",
+    "County": "Harrisonburg",
     "Latitude": "+38.436013",
     "Longitude": "-78.874197"
   },
   {
     "State": "VA",
     "FIPS": 51670,
-    "County": "Hopewell [9]",
+    "County": "Hopewell",
     "Latitude": "+37.291010",
     "Longitude": "-77.298944"
   },
   {
     "State": "VA",
     "FIPS": 51678,
-    "County": "Lexington [9]",
+    "County": "Lexington",
     "Latitude": "+37.782332",
     "Longitude": "-79.444320"
   },
   {
     "State": "VA",
     "FIPS": 51680,
-    "County": "Lynchburg [9]",
+    "County": "Lynchburg",
     "Latitude": "+37.399016",
     "Longitude": "-79.195458"
   },
   {
     "State": "VA",
     "FIPS": 51683,
-    "County": "Manassas [9]",
+    "County": "Manassas",
     "Latitude": "+38.747561",
     "Longitude": "-77.484727"
   },
   {
     "State": "VA",
     "FIPS": 51685,
-    "County": "Manassas Park[9]",
+    "County": "Manassas Park",
     "Latitude": "+38.768991",
     "Longitude": "-77.448681"
   },
   {
     "State": "VA",
     "FIPS": 51690,
-    "County": "Martinsville [9]",
+    "County": "Martinsville",
     "Latitude": "+36.683527",
     "Longitude": "-79.863648"
   },
   {
     "State": "VA",
     "FIPS": 51700,
-    "County": "Newport News[9]",
+    "County": "Newport News",
     "Latitude": "+37.075978",
     "Longitude": "-76.521719"
   },
   {
     "State": "VA",
     "FIPS": 51710,
-    "County": "Norfolk [9]",
+    "County": "Norfolk",
     "Latitude": "+36.923015",
     "Longitude": "-76.244641"
   },
   {
     "State": "VA",
     "FIPS": 51720,
-    "County": "Norton [9]",
+    "County": "Norton",
     "Latitude": "+36.931549",
     "Longitude": "-82.625996"
   },
   {
     "State": "VA",
     "FIPS": 51730,
-    "County": "Petersburg [9]",
+    "County": "Petersburg",
     "Latitude": "+37.204730",
     "Longitude": "-77.392368"
   },
   {
     "State": "VA",
     "FIPS": 51735,
-    "County": "Poquoson [9]",
+    "County": "Poquoson",
     "Latitude": "+37.128360",
     "Longitude": "-76.303534"
   },
   {
     "State": "VA",
     "FIPS": 51740,
-    "County": "Portsmouth [9]",
+    "County": "Portsmouth",
     "Latitude": "+36.859430",
     "Longitude": "-76.356269"
   },
   {
     "State": "VA",
     "FIPS": 51750,
-    "County": "Radford [9]",
+    "County": "Radford",
     "Latitude": "+37.120036",
     "Longitude": "-80.557048"
   },
   {
     "State": "VA",
     "FIPS": 51760,
-    "County": "Richmond [9]",
+    "County": "Richmond",
     "Latitude": "+37.531399",
     "Longitude": "-77.476009"
   },
   {
     "State": "VA",
     "FIPS": 51770,
-    "County": "Roanoke [9]",
+    "County": "Roanoke",
     "Latitude": "+37.277830",
     "Longitude": "-79.958472"
   },
   {
     "State": "VA",
     "FIPS": 51775,
-    "County": "Salem [9]",
+    "County": "Salem",
     "Latitude": "+37.285333",
     "Longitude": "-80.055241"
   },
   {
     "State": "VA",
     "FIPS": 51790,
-    "County": "Staunton [9]",
+    "County": "Staunton",
     "Latitude": "+38.158056",
     "Longitude": "-79.061501"
   },
   {
     "State": "VA",
     "FIPS": 51800,
-    "County": "Suffolk [9]",
+    "County": "Suffolk",
     "Latitude": "+36.697157",
     "Longitude": "-76.634781"
   },
   {
     "State": "VA",
     "FIPS": 51810,
-    "County": "Virginia Beach[9]",
+    "County": "Virginia Beach",
     "Latitude": "+36.779322",
     "Longitude": "-76.024020"
   },
   {
     "State": "VA",
     "FIPS": 51820,
-    "County": "Waynesboro [9]",
+    "County": "Waynesboro",
     "Latitude": "+38.067157",
     "Longitude": "-78.901420"
   },
   {
     "State": "VA",
     "FIPS": 51830,
-    "County": "Williamsburg [9]",
+    "County": "Williamsburg",
     "Latitude": "+37.269293",
     "Longitude": "-76.706717"
   },
   {
     "State": "VA",
     "FIPS": 51840,
-    "County": "Winchester [9]",
+    "County": "Winchester",
     "Latitude": "+39.173869",
     "Longitude": "-78.176356"
   },
