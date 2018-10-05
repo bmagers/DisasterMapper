@@ -61,7 +61,6 @@ function initMap() {
     center: {lat: 47.6062, lng: -122.3321},
     zoom: 10
   });
-  bounds = new google.maps.LatLngBounds();
 }
 
 function mapLocation(state, county) {
@@ -105,10 +104,11 @@ function addMarker(position) {
 }
 
 function clearMarkers() {
-  if (markers.length) {
-    setMapOnAll(null);
-    markers = [];
+  for (var i = 0; i < markers.length; i++) {
+    markers[i].setMap(null);
   }
+  markers = [];
+  bounds = new google.maps.LatLngBounds();
 }
 
 $(document).ready(function() {
