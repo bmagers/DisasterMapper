@@ -54,14 +54,14 @@ var states = {
 }
 
 var map;
+var markers = [];
+var bounds;
 function initMap() {
   map = new google.maps.Map(document.getElementById("map"), {
     center: {lat: 47.6062, lng: -122.3321},
     zoom: 10
   });
 }
-
-var marker;
 
 function mapLocation(state, county) {
   var countyObj = counties.find(obj => obj.State === state && obj.County === county);
@@ -93,6 +93,24 @@ function addFilter(filter, newFilter) {
   return newFilter;
 }
 
+function addMarker(position) {
+  var marker = new google.maps.Marker ({
+    position: position,
+    maps: map
+  });
+  marker.setMap(map);
+  markers.push(marker);
+  bounds.extend(marker.getPosition());
+}
+
+function clearMarkers() {
+  for (var i = 0; i < markers.length; i++) {
+    markers[i].setMap(null);
+  }
+  markers = [];
+  bounds = new google.maps.LatLngBounds();
+}
+
 $(document).ready(function() {
 
   $.each(states, function(index, value) {
@@ -115,24 +133,10 @@ $(document).ready(function() {
     });
   });
 
-  $("#counties").change(function() {
-    if (marker) {
-      marker.setMap(null);
-    }
-    var state = $("#states").find(":selected").attr("value");
-    var county = $("#counties").find(":selected").attr("value");
-    var position = mapLocation(state, county);
-    marker = new google.maps.Marker({
-      position: position,
-      map: map
-    });
-    marker.setMap(map);
-    map.setCenter(position);
-  });
-
   $("#search-btn").on("click", function(event) {
     // Don't refresh the page!
     event.preventDefault();
+    clearMarkers();
     //"title": "FLOOD",
     let title = $("#title-input").val().trim().toUpperCase();
     console.log(title);
@@ -195,19 +199,25 @@ $(document).ready(function() {
       } else {
         for(var i = 0; i < disasterInfo.length; i++) {
           
+          var state = disasterInfo[i].state;
+          var county = disasterInfo[i].declaredCountyArea.replace(/ *\([^)]*\) */g, "");
+
           let newRow = $("<tr>").append(
             $("<td>").text(disasterInfo[i].title),
             $("<td>").text(disasterInfo[i].incidentType),
-            $("<td>").text(disasterInfo[i].state),
-            $("<td>").text(disasterInfo[i].declaredCountyArea),
+            $("<td>").text(state),
+            $("<td>").text(county),
             $("<td>").text(dateFormat(disasterInfo[i].incidentBeginDate)),
             $("<td>").text(dateFormat(disasterInfo[i].incidentEndDate))
           );
-  
+
+          addMarker(mapLocation(state, county));
+
           // Append the new row to the table
         disasterTable.append(newRow);
         }
       }
+      map.fitBounds(bounds);
     });
   });
 
