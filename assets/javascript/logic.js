@@ -223,6 +223,7 @@ $(document).ready(function() {
           disasterTable.append(newRow);
         }
       }
+      $("#map-tab").tab("show");
       map.fitBounds(bounds);
       console.log("zoom:" + map.getZoom())
       if (map.getZoom() > 10) {
