@@ -182,7 +182,7 @@ $(document).ready(function() {
       endDate = new Date(endDate).toISOString(); //api way to format date/times
       queryFilter = addFilter(queryFilter, "incidentEndDate le '" + endDate + "'");
     }
-    let femaQueryURL = "https://www.fema.gov/api/open/v1/DisasterDeclarationsSummaries?$filter=" + queryFilter + "&$orderby=incidentBeginDate%20desc&$select=title,incidentType,declaredCountyArea,state,incidentBeginDate,incidentEndDate&$top=10";
+    let femaQueryURL = "https://www.fema.gov/api/open/v1/DisasterDeclarationsSummaries?$filter=" + queryFilter + "&$orderby=incidentBeginDate%20desc&$select=title,incidentType,declaredCountyArea,state,incidentBeginDate,incidentEndDate&$top=100";
   
     console.log(femaQueryURL);
     $.ajax({
@@ -206,13 +206,13 @@ $(document).ready(function() {
           var state = disasterInfo[i].state;
           var county = disasterInfo[i].declaredCountyArea.replace(/ *\([^)]*\) */g, "");
 
-          let newRow = $("<tr>").append(
-            $("<td>").text(disasterInfo[i].title),
-            $("<td>").text(disasterInfo[i].incidentType),
-            $("<td>").text(state),
-            $("<td>").text(county),
-            $("<td>").text(dateFormat(disasterInfo[i].incidentBeginDate)),
-            $("<td>").text(dateFormat(disasterInfo[i].incidentEndDate))
+          let newRow = $("<tr class='get-news-queries'>").append(
+            $("<td class='get-title'>").text(disasterInfo[i].title),
+            $("<td class='get-type'>").text(disasterInfo[i].incidentType),
+            $("<td class='get-state'>").text(state),
+            $("<td class='get-area'>").text(county),
+            $("<td class='get-start-date'>").text(dateFormat(disasterInfo[i].incidentBeginDate)),
+            $("<td class='get-end-date'>").text(dateFormat(disasterInfo[i].incidentEndDate))
           );
 
           if (state && county) {
@@ -223,6 +223,7 @@ $(document).ready(function() {
           disasterTable.append(newRow);
         }
       }
+      $("#map-tab").tab("show");
       map.fitBounds(bounds);
       console.log("zoom:" + map.getZoom())
       if (map.getZoom() > 10) {
@@ -230,5 +231,107 @@ $(document).ready(function() {
       }
     });
   });
+
+  //News - generating queries from Fema table row
+  $(document).on("click", ".get-news-queries", function(){
+    
+    var getTitle = $(this).closest("tr").find(".get-title").text();  
+    var getType = $(this).closest("tr").find(".get-type").text();
+    var getState = $(this).closest("tr").find(".get-state").text();
+    var getArea = $(this).closest("tr").find(".get-area").text();
+    var getSatrtDate = $(this).closest("tr").find(".get-start-date").text();    
+    var getEndDate = $(this).closest("tr").find(".get-end-date").text();   
+
+    var getFomarttedTitle = getTitle.split(' ').join('%20');
+
+    var getFomarttedType  = getType.split(' ').join('%20').replace(/ *\([^)]*\) */g, "");
+    console.log("I am here " + getFomarttedType)
+
+    var getFomarttedArea = getArea.split(' ').join('%20');
+
+    // var newsParam = (getFomarttedArea + "+county+"+ getFomarttedTile + "&" + getType + "+in+" + getState).toLowerCase();
+    // console.log(newsParam);
+
+    var newsParam = getFomarttedTitle.toLowerCase()+"%20"+getFomarttedArea.toLowerCase();
+    console.log(newsParam);
+
+    var newsFilterStart = moment(getSatrtDate).format('YYYY-MM-DD');
+
+    var newsFilerEnd;
+    if(getEndDate === ""){
+      newsFilerEnd = new moment().format('YYYY-MM-DD');
+      console.log("current date is " + newsFilerEnd);
+    } else {
+      newsFilerEnd = moment(getEndDate).format('YYYY-MM-DD');
+    }
+    
+    var newsQueryURL = 'https://newsapi.org/v2/everything?'
+      + 'q=' + newsParam
+      + '&from=' + newsFilterStart
+      + '&to=' + newsFilerEnd
+      + '&sortBy=relevancy'
+      + '&apiKey=cd53e9ad02b147df8b2c64a25645e2dd';
+      $.ajax({
+      url: newsQueryURL,
+      method: "GET",
+      }).then(function (response) {
+          console.log(newsQueryURL);
+
+      var results = response.articles;
+
+      $("#news-view").empty();
+
+      var resultLength = 3;
+      //Looping through each result item
+      for (var i = 0; i < resultLength; i++) {
+
+        // Creating and storing a div tag
+        var articleDiv = $("<div id='article-view col-md-3 card-body'>");
+
+        var articleTitle = "<p id='article-title'>" + results[i].title + "</p>";
+
+        var articleContent = results[i].content;
+
+        var articleDesciption = $("<p>").html("<p style='color:gray;'>Descrition:</p>" + results[i].description);
+
+        var newsTitle = '<a href="#" data-toggle="popover" data-html="true" data-trigger="focus" class="title-view">' + articleTitle + '</a>';
+
+        var articleSource = " read more from "+ results[i].source.id;
+
+        // Converting publishedAt into better time format
+        var newsDate = moment(results[i].publishedAt).format('YYYY/MM/DD hh:mm:A');
+        var newsPublished = $("<p id='news-reference'>").text("By " + results[i].author + " - " + newsDate );
+
+        // Creating a tag for the news url that contain a image tag
+        var newsImageTag = '<img class="rounded" src="' + results[i].urlToImage + '" /> <br/>';
+
+        var newsLink = '<div><p style="color:gray;">Content:</p><span><p>' + articleContent + '</span><a href="' + results[i].url + '" target ="_blank" rel="nofollow">' + articleSource + '</a></p></div>' 
+
+        var articleBreak = "<br/>";
+
+        // Appending the all elements to the articleDiv
+        articleDiv.append(newsTitle);
+        articleDiv.append(newsPublished);
+        articleDiv.append(newsImageTag);
+        articleDiv.append(articleBreak);
+
+        // Prependng the articleDiv to the HTML page in the "#news-view" div
+        $("#news-view").prepend(articleDiv);
+
+        $(function () {
+        $('[data-toggle="popover"]').popover({
+          title: articleDesciption,
+          content: newsLink
+          })
+        });
+      } // ends loop
+
+    $('.popover-dismiss').popover({
+      trigger: 'focus'
+    });
+
+  }) // ends Ajax call for news
+  
+  }); // ends on click event for getting news contents
 
 });
