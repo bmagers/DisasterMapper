@@ -1,5 +1,6 @@
 body {
-  background: lightblue;
+  background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToz7dFvVYXDR6J9Yc8O6ZKSEvJq8qyKOqrp-n5-xuBv8UZJ8Ks);
+  color: gold;
 
 }
 
@@ -15,6 +16,7 @@ h3, h4 {
 
 .container {
   padding-top: 80px;
+  /* background-color: white; */
 }
 
 #counties {
@@ -57,4 +59,8 @@ h3, h4 {
 
 .result-content {
   margin-top: 15px;
+}
+
+#disaster-tabs a:link {
+  color: black;
 }
