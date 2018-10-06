@@ -241,7 +241,7 @@ $(document).ready(function() {
       endDate = new Date(endDate).toISOString(); //api way to format date/times
       queryFilter = addFilter(queryFilter, "incidentEndDate le '" + endDate + "'");
     }
-    let femaQueryURL = "https://www.fema.gov/api/open/v1/DisasterDeclarationsSummaries?$filter=" + queryFilter + "&$orderby=incidentBeginDate%20desc&$select=title,incidentType,declaredCountyArea,state,incidentBeginDate,incidentEndDate&$top=100";
+    let femaQueryURL = "https://www.fema.gov/api/open/v1/DisasterDeclarationsSummaries?$filter=" + queryFilter + "&$orderby=incidentBeginDate%20desc&$select=title,incidentType,declaredCountyArea,state,incidentBeginDate,incidentEndDate&$top=10";
   
     console.log(femaQueryURL);
     $.ajax({
