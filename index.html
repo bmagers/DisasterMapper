@@ -24,121 +24,146 @@
   </div>
 
   <div class="container">
+  <!-- nav -->
+    <ul class="nav nav-tabs" id="disaster-tabs" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link active" id="disasterSearch-tab" data-toggle="tab" href="#disasterSearch" role="tab" aria-controls="disasterSearch" aria-selected="true">Search</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="map-tab" data-toggle="tab" href="#map" role="tab" aria-controls="map" aria-selected="false">Map</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="list-tab" data-toggle="tab" href="#list" role="tab" aria-controls="list" aria-selected="false">List</a>
+      </li>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="news-tab" data-toggle="tab" href="#news" role="tab" aria-controls="news" aria-selected="false">News</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="relief-tab" data-toggle="tab" href="#relief" role="tab" aria-controls="relief" aria-selected="false">Relief</a>
+      </li>
+    </ul>
+    <!-- content -->
+    <div class="tab-content" id="tabContent">
+      <!--search-->
+      <div class="tab-pane active" id="disasterSearch" role="tabpanel" aria-labelledby="disasterSearch-tab">
+        
+        <!-- input form -->
+        <form>
+          <div class="form-group row">
+            <!-- title -->
+            <label for="title-input">Name</label>
+            <input class="form-control" id="title-input" placeholder="Hurricane florence" type="text">
+          </div>
 
-    <div class="row">
-      <div class="col-md-4">
+          <div class="form-group row">
+            <!-- incidentType  -->
+            <label for="incident-type-input">Incident Type</label>
+            <input class="form-control" id="incident-type-input" placeholder="Hurricane" type="text">
+          </div>
 
-          <div class="card-body">
+          <div class="form-group row">
+            <!-- declaredCountyArea or state -->
+            <label for="location-input">Location</label>
+            <select id="states">
+              <option selected disabled>select a state</option>
+            </select>
+            <select id="counties"></select>
+          </div>
 
+          <div class="form-group row">
+            <!-- incidentBeginDate -->
+            <label for="begin-input">Begin Date (MM/DD/YYYY)</label>
+            <input class="form-control" id="begin-input" placeholder="01/01/2015" type="text">
+          </div>
 
-            <!-- Entry Form - queries to the FEMA API  -->
-            <form>
+          <div class="form-group row">
+            <!-- incidentEndDate -->
+            <label for="end-input">End Date (MM/DD/YYYY)</label>
+            <input class="form-control" id="end-input" placeholder="10/02/2018" type="text">
+          </div>
 
-              <div class="form-group row">
-                <!-- title -->
-                <label for="title-input">Name</label>
-                <input class="form-control" id="title-input" placeholder="Hurricane florence" type="text">
-              </div>
-
-              <div class="form-group row">
-                <!-- incidentType  -->
-                <label for="incident-type-input">Incident Type</label>
-                <input class="form-control" id="incident-type-input" placeholder="Hurricane" type="text">
-              </div>
-              
-              <div class="form-group row">
-                <!-- declaredCountyArea or state -->
-                <label for="location-input">Location</label>
-                <select id="states">
-                  <option selected>all states</option>
-                </select>
-                <select id="counties"></select>
-              </div>
-
-              <div class="form-group row">
-                <!-- incidentBeginDate -->
-                <label for="begin-input">Begin Date (MM/DD/YYYY)</label>
-                <input class="form-control" id="begin-input" placeholder="01/01/2015" type="text">
-              </div>
-
-              <div class="form-group row">
-                  <!-- incidentEndDate -->
-                  <label for="end-input">End Date (MM/DD/YYYY)</label>
-                  <input class="form-control" id="end-input" placeholder="10/02/2018" type="text">
-                </div>
-
-              <button class="btn btn-primary float-right" id="search-btn">Go</button>
-            </form>
-            <!-- Form ends -->
+          <button class="btn btn-primary float-right" id="search-btn">Go</button>
+        </form>
+      <!-- Form ends -->
+      </div>
+      <!--map-->
+      <div class="tab-pane" id="map" role="tabpanel" aria-labelledby="map-tab">
+        <div class="content" id="bottomList">
+          <div class="col-md-8">
+            <div id="map"></div>
+          </div>
+        </div>
+      </div>
+      <!-- list -->
+      <div class="tab-pane" id="list" role="tabpanel" aria-labelledby="list-tab">
+        <div class="content" id="bottomList">
+        <!-- Results list -->
+          <table class="table table-striped"  id="fema-disasters">
+            <thead>
+              <p>FEMA Disaster Declarations</p>
+              <tr>
+                <th scope="col">Title</th>
+                <th scope="col">Incident Type</th>
+                <th scope="col">State</th>
+                <th scope="col">Declared County</th>
+                <th scope="col">Incident Begin Date</th>
+                <th scope="col">Incident End Date</th>
+              </tr>
+            </thead>
+            <tbody>
+            </tbody>
+          </table>    
         </div>
       </div>
 
-      <div class="col-md-8">
-        <div id="map"></div>
+      <!-- relief -->
+      <div class="tab-pane" id="relief" role="tabpanel" aria-labelledby="relief-tab"> 
+        <!-- Relief donation and volunteer links -->
+        <div class="card-deck">
+          <div class="card">
+            <img class="card-img-top" src="https://bloximages.newyork1.vip.townnews.com/ktbs.com/content/tncms/assets/v3/editorial/3/b0/3b0355fe-b13b-11e8-92ef-2f5bfcc1621c/5b90235219e68.image.jpg?resize=1200%2C675/100px180/" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">American Red Cross</h5>
+              <p class="card-text">If you wish to donate or volunteer towards relief efforts for disasters through Red Cross please click on the link below!</p>
+            </div>
+            <div class="card-footer">
+              <a href="https:www.redcross.org/"
+              class="card-link">Red Cross</a>
+            </div>
+          </div>
+          <div class="card">
+            <img class="card-img-top" src="http://www.coj.net/getattachment/43fb1d4a-3e07-4ffb-ab9c-5bb701b1b700/FEMA-Disaster-Registration-Has-Closed.aspx?/100px180/" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">FEMA</h5>
+              <p class="card-text">If you wish to donate or volunteer towards relief efforts for disasters through FEMA please click on the link below!</p>
+            </div>
+            <div class="card-footer">
+              <a href="https:www.fema.gov/volunteer-donate-responsibly/"
+              class="card-link">FEMA</a>
+            </div>
+          </div>
+          <div class="card">
+            <img class="card-img-top" src="https://i1.wp.com/host3.salvationarmysouth.org/wp-content/uploads/2013/02/eds.png?fit=495%2C300&ssl=1/100px180/" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">Salvation Army</h5>
+              <p class="card-text">If you wish to donate or volunteer towards relief efforts for disasters through Salvation Army please click on the link below!</p>
+            </div>
+            <div class="card-footer">
+              <a href="https://disaster.salvationarmyusa.org/give/"
+              class="card-link">Salvation Army</a>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-
-    <!-- Results list -->
-    <table class="table table-striped"  id="fema-disasters">
-      <thead>
-        <p>FEMA Disaster Declarations</p>
-        <tr>
-          <th scope="col">Title</th>
-          <th scope="col">Incident Type</th>
-          <th scope="col">State</th>
-          <th scope="col">Declared County</th>
-          <th scope="col">Incident Begin Date</th>
-          <th scope="col">Incident End Date</th>
-        </tr>
-      </thead>
-      <tbody>
-      </tbody>
-    </table>    
-    
-  <!-- Relief donation and volunteer links -->
-  <div class="card-deck">
-    <div class="card">
-      <img class="card-img-top" src="https://bloximages.newyork1.vip.townnews.com/ktbs.com/content/tncms/assets/v3/editorial/3/b0/3b0355fe-b13b-11e8-92ef-2f5bfcc1621c/5b90235219e68.image.jpg?resize=1200%2C675/100px180/" alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">American Red Cross</h5>
-        <p class="card-text">If you wish to donate or volunteer towards relief efforts for disasters through Red Cross please click on the link below!</p>
-      </div>
-      <div class="card-footer">
-        <a href="https:www.redcross.org/"
-        class="card-link">Red Cross</a>
-      </div>
-    </div>
-    <div class="card">
-      <img class="card-img-top" src="https://www.coj.net/getattachment/43fb1d4a-3e07-4ffb-ab9c-5bb701b1b700/FEMA-Disaster-Registration-Has-Closed.aspx?/100px180/" alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">FEMA</h5>
-        <p class="card-text">If you wish to donate or volunteer towards relief efforts for disasters through FEMA please click on the link below!</p>
-      </div>
-      <div class="card-footer">
-        <a href="https:www.fema.gov/volunteer-donate-responsibly/"
-        class="card-link">FEMA</a>
-      </div>
-    </div>
-    <div class="card">
-      <img class="card-img-top" src="https://i1.wp.com/host3.salvationarmysouth.org/wp-content/uploads/2013/02/eds.png?fit=495%2C300&ssl=1/100px180/" alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">Salvation Army</h5>
-        <p class="card-text">If you wish to donate or volunteer towards relief efforts for disasters through Salvation Army please click on the link below!</p>
-      </div>
-      <div class="card-footer">
-        <a href="https://disaster.salvationarmyusa.org/give/"
-        class="card-link">Salvation Army</a>
-      </div>
+  <!--settings -->
     </div>
   </div>
 
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script
-    src="https://code.jquery.com/jquery-3.3.1.min.js"
-    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-    crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
 
   <!-- Firebase -->
   <script src="https://www.gstatic.com/firebasejs/5.0.0/firebase-app.js"></script>
