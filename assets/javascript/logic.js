@@ -206,13 +206,13 @@ $(document).ready(function() {
           var state = disasterInfo[i].state;
           var county = disasterInfo[i].declaredCountyArea.replace(/ *\([^)]*\) */g, "");
 
-          let newRow = $("<tr>").append(
-            $("<td>").text(disasterInfo[i].title),
-            $("<td>").text(disasterInfo[i].incidentType),
-            $("<td>").text(state),
-            $("<td>").text(county),
-            $("<td>").text(dateFormat(disasterInfo[i].incidentBeginDate)),
-            $("<td>").text(dateFormat(disasterInfo[i].incidentEndDate))
+          let newRow = $("<tr class='get-news-queries'>").append(
+            $("<td class='get-title'>").text(disasterInfo[i].title),
+            $("<td class='get-type'>").text(disasterInfo[i].incidentType),
+            $("<td class='get-state'>").text(state),
+            $("<td class='get-area'>").text(county),
+            $("<td class='get-start-date'>").text(dateFormat(disasterInfo[i].incidentBeginDate)),
+            $("<td class='get-end-date'>").text(dateFormat(disasterInfo[i].incidentEndDate))
           );
 
           if (state && county) {
@@ -231,5 +231,4 @@ $(document).ready(function() {
       }
     });
   });
-
 });
