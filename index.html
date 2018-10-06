@@ -78,22 +78,33 @@
       </div>
     </div>
 
+    <div class="row result-content">
     <!-- Results list -->
-    <table class="table table-striped"  id="fema-disasters">
-      <thead>
-        <p>FEMA Disaster Declarations</p>
-        <tr>
-          <th scope="col">Title</th>
-          <th scope="col">Incident Type</th>
-          <th scope="col">State</th>
-          <th scope="col">Declared County</th>
-          <th scope="col">Incident Begin Date</th>
-          <th scope="col">Incident End Date</th>
-        </tr>
-      </thead>
-      <tbody>
-      </tbody>
-    </table>    
+    <div class="col-md-9">
+      <table class=" table table-striped"  id="fema-disasters">
+        <thead>
+          <p>FEMA Disaster Declarations</p>
+          <tr>
+            <th scope="col">Title</th>
+            <th scope="col">Incident Type</th>
+            <th scope="col">State</th>
+            <th scope="col">Declared County</th>
+            <th scope="col">Incident Begin Date</th>
+            <th scope="col">Incident End Date</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>    
+    </div>
+
+    <!-- News  -->
+    
+      <div class="col-md-3">
+        <div id="news-view"></div>
+    </div>
+
+  </div>
     
   <!-- Relief donation and volunteer links -->
   <div class="card-deck">
@@ -153,7 +164,6 @@
   <!-- our Javascript -->
   <script src="assets/javascript/logic.js"></script>
   <script src="assets/javascript/counties.js"></script>
-  <script src="news.js"></script>
 
 </body>
 
