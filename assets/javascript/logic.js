@@ -223,6 +223,7 @@ $(document).ready(function() {
           disasterTable.append(newRow);
         }
       }
+      $("#map-tab").tab("show");
       map.fitBounds(bounds);
       console.log("zoom:" + map.getZoom())
       if (map.getZoom() > 10) {
@@ -230,104 +231,4 @@ $(document).ready(function() {
       }
     });
   });
-
-  //News - generating queries from Fema table row
-  $(document).on("click", ".get-news-queries", function(){
-    console.log("news button is working")
-    
-    var getTitle = $(this).closest("tr").find(".get-title").text();  
-    var getType = $(this).closest("tr").find(".get-type").text();
-    var getState = $(this).closest("tr").find(".get-state").text();
-    var getArea = $(this).closest("tr").find(".get-area").text();
-    var getSatrtDate = $(this).closest("tr").find(".get-start-date").text();    
-    var getEndDate = $(this).closest("tr").find(".get-end-date").text();   
-
-    var getFomarttedTile = getTitle.split(' ').join('+');
-
-    var getFomarttedArea = getArea.split(' ').join('+');
-
-    var newsParam = (getFomarttedArea + "+county+"+ getFomarttedTile + "&" + getType + "+in+" + getState).toLowerCase();
-    console.log(newsParam);
-
-    var newsFilterStart = moment(getSatrtDate).format('YYYY-MM-DD');
-
-    var newsFilerEnd;
-    if(getEndDate === ""){
-      newsFilerEnd = new moment().format('YYYY-MM-DD');
-      console.log("current date is " + newsFilerEnd);
-    } else {
-      newsFilerEnd = moment(getEndDate).format('YYYY-MM-DD');
-    }
-    //Testing the dates
-    console.log("from " + newsFilterStart + " to " + newsFilerEnd)
-
-    var newsQueryURL = 'https://newsapi.org/v2/everything?'
-      + 'q=' + newsParam
-      + '&from=' + newsFilterStart
-      + '&to=' + newsFilerEnd
-      + '&sortBy=relevancy'
-      + '&apiKey=cd53e9ad02b147df8b2c64a25645e2dd';
-      $.ajax({
-      url: newsQueryURL,
-      method: "GET",
-      }).then(function (response) {
-          console.log(newsQueryURL);
-
-      var results = response.articles;
-
-      $("#news-view").empty();
-
-      var resultLength = 3;
-      //Looping through each result item
-      for (var i = 0; i < resultLength; i++) {
-
-        // Creating and storing a div tag
-        var articleDiv = $("<div id='article-view col-md-3 card-body'>").text("Related News");
-
-        var articleTitle = "<p id='article-title'>" + results[i].title + "</p>";
-
-        var articleContent = results[i].content;
-
-        var articleDesciption = $("<p>").html("<p style='color:gray;'>Descrition:</p>" + results[i].description);
-
-        var newsTitle = '<a href="#" data-toggle="popover" data-html="true" data-trigger="focus" class="title-view">' + articleTitle + '</a>';
-
-        var articleSource = " read more from "+ results[i].source.id;
-
-        // Converting publishedAt into better time format
-        var newsDate = moment(results[i].publishedAt).format('YYYY/MM/DD hh:mm:A');
-        var newsPublished = $("<p id='news-reference'>").text("By " + results[i].author + " - " + newsDate );
-
-        // Creating a tag for the news url that contain a image tag
-        var newsImageTag = '<img class="rounded" src="' + results[i].urlToImage + '" /> <br/>';
-
-        var newsLink = '<div><p style="color:gray;">Content:</p><span><p>' + articleContent + '</span><a href="' + results[i].url + '" target ="_blank" rel="nofollow">' + articleSource + '</a></p></div>' 
-
-        var articleBreak = "<br/>";
-
-        // Appending the all elements to the articleDiv
-        articleDiv.append(newsTitle);
-        articleDiv.append(newsPublished);
-        articleDiv.append(newsImageTag);
-        articleDiv.append(articleBreak);
-
-        // Prependng the articleDiv to the HTML page in the "#news-view" div
-        $("#news-view").prepend(articleDiv);
-
-        $(function () {
-        $('[data-toggle="popover"]').popover({
-          title: articleDesciption,
-          content: newsLink
-          })
-        });
-      } // ends loop
-
-    $('.popover-dismiss').popover({
-      trigger: 'focus'
-    });
-
-  }) // ends Ajax call for news
-  
-  }); // ends on click event for getting news contents
-
 });
