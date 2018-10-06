@@ -1,6 +1,7 @@
 #wholePage {
   background-color: lightblue;
   background-size: 100%;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 #map {
@@ -20,11 +21,6 @@
 .card-deck {
   padding-top: 100px;
   padding-bottom: 50px;
-<<<<<<< HEAD
-  color: black;
-}
-
-=======
 }
 
 /* News Content */
@@ -59,4 +55,3 @@
 .result-content {
   margin-top: 15px;
 }
->>>>>>> 6c9e9f84a11b1f85c0c6238b929797ed64829ab4
