@@ -1,11 +1,14 @@
 body {
-  background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToz7dFvVYXDR6J9Yc8O6ZKSEvJq8qyKOqrp-n5-xuBv8UZJ8Ks);
-  color: gold;
+  background: url(http://iliketowastemytime.com/sites/default/files/dramatic-scenes-disaster-and-relief-by-bruno-freitas-and-yannick-pian-iltwmt.jpg);
+  background-size: cover;
+  color: black;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 
 }
 
 h3, h4 {
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  color: red;
 }
 
 #map {
@@ -14,9 +17,14 @@ h3, h4 {
   border: 1px solid black;
 }
 
+.container-1 {
+  padding: 50px;
+}
+
 .container {
-  padding-top: 80px;
-  /* background-color: white; */
+  padding: 50px;
+  background-color: white;
+  border-radius: 25px;
 }
 
 #counties {
@@ -62,5 +70,9 @@ h3, h4 {
 }
 
 #disaster-tabs a:link {
-  color: black;
+  color: blue;
+}
+
+#disaster-tabs a:hover {
+  color: red;
 }
