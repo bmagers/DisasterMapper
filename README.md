@@ -1,6 +1,6 @@
 # DisasterMapper
 
-##Page Content
+##Content
 * Navigation Bar
     - Navigation click events: 
         * when *Icon* is clicked - navigate users to **Home Page**
